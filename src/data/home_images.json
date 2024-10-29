@@ -1,0 +1,32 @@
+{
+    "projects": [
+        {
+            "name": "tax3",
+            "image": "main_thoot.png"
+        },
+        {
+            "name": "bubbic",
+            "image": "main_bubbic.png"
+        },
+        {
+            "name": "nasty",
+            "image": "main_nasty.png"
+        },
+        {
+            "name": "kusomegane",
+            "image": "main_kusomegane.png"
+        },
+        {
+            "name": "ifc",
+            "image": "main_ifc.png"
+        },
+        {
+            "name": "Luchia",
+            "image": "main_luchia.png"
+        },
+        {
+            "name": "Luchia",
+            "image": "main_wasshoi.png"
+        }
+    ]
+}
