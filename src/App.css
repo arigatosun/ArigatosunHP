@@ -338,3 +338,65 @@ body,
     max-width: 250px;
   }
 }
+
+/* 既存のApp.cssの最後に追加 */
+
+/* アニメーション関連のスタイル */
+.slider-container {
+  opacity: 1;
+  transition: all 0.4s ease-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.image-fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-out;
+}
+
+.portfolio-link {
+  display: block;
+  transition: all 0.2s ease-out;
+}
+
+.portfolio-link:active {
+  transform: scale(0.98);
+}
+
+/* PageTransitionのスタイル */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 600px) {
+  .slider-container {
+    transition: all 0.3s ease-out;
+  }
+  
+  .portfolio-link:active {
+    transform: scale(0.95);
+  }
+}

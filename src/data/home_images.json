@@ -2,7 +2,7 @@
     "projects": [
         {
             "name": "tax3",
-            "image": "main_thoot.png"
+            "image": "main_tax3.png"
         },
         {
             "name": "bubbic",
@@ -27,6 +27,19 @@
         {
             "name": "Luchia",
             "image": "main_wasshoi.png"
+        },
+        {
+            "name": "thoot",
+            "image": "main_thoot.png"
+        },
+        {
+            "name": "nest",
+            "image": "main_nest.png"
+        },
+        {
+            "name": "tunageru",
+            "image": "tunageru_main.png"
         }
+
     ]
 }

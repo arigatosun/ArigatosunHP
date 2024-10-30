@@ -1,15 +1,40 @@
 import React from "react";
-import { Grid, Typography, Button, Box, Link, useTheme, useMediaQuery } from "@mui/material";
+import { Grid, Typography, Button, Box, Link, useTheme, useMediaQuery, styled } from "@mui/material";
 import phone from "../components/images/phone.png";
 import BackButton from "../components/BackButton";
-import useLocationChange from '../components/useLocationChange.ts'
+import useLocationChange from '../components/useLocationChange.ts';
 
-
+// カスタムスタイルコンポーネントの作成
+const CustomButton = styled(Button)(({ theme }) => ({
+  '&.MuiButtonBase-root': {
+    textTransform: "uppercase !important",
+    minWidth: '150px',
+    backgroundColor: "transparent",
+    color: "#FFFFFF !important",
+    border: "1px solid #FFFFFF !important",
+    borderRadius: "30px !important",  // グローバルスタイルに合わせる
+    padding: "5px 35px !important",   // グローバルスタイルに合わせる
+    fontSize: "14px",
+    letterSpacing: "0.5px",
+    fontWeight: "400",
+    boxShadow: "none",
+    transition: "all 0.3s ease",
+  },
+  '&.MuiButtonBase-root:hover': {
+    backgroundColor: "#FFFFFF !important",
+    color: "#000000 !important",
+    border: "1px solid #FFFFFF !important",
+  }
+}));
 
 function Contact() {
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const emailAddress = "t.ryosuke@arigatosun.com";
+  const contactText = `依頼に関しまして、メールにてご相談を承っております。
+                      下記のメールアドレスまで、ご相談内容をお送りください。
+                      1~2営業日で担当者からご返信させていただきます。`;
 
   return (
     <div>
@@ -24,7 +49,7 @@ function Contact() {
             sx={{
               fontSize: "64px",
               fontWeight: "600",
-              color: "#443538",
+              color: "#FFFFFF",
               fontFamily: "Lexend",
             }}
             className="title"
@@ -32,37 +57,43 @@ function Contact() {
             contact
           </Typography>
           <p style={{ fontSize: "16px", lineHeight: "31px" }} className="display-md">
-            依頼に関しまして、公式LINEにてご相談から受け賜っております。
-            <br /> 友達追加していただき、トークからご相談内容をお送りください。
+            {contactText}
             <br />
-            1~2営業日で担当者からご連絡いたします。
+            <span style={{ fontWeight: "500" }}>Email: {emailAddress}</span>
           </p>
         </Grid>
         <Grid item md={6} xs={12} sx={{ textAlign: "right" }} className="center-sm">
-          <img id="phone" src={phone} width={350} alt="phone" />
+          <img 
+            id="phone" 
+            src={phone} 
+            width={280} 
+            alt="phone" 
+            style={{ 
+              maxWidth: "100%",
+              height: "auto"
+            }}
+          />
         </Grid>
       </Grid>
-      <div className="display-sm"> 
-      <p style={{ fontSize: "16px", lineHeight: "31px", textAlign: "left"}} className="descrption-mobile">
-            依頼に関しまして、公式LINEにてご相談から受け賜っております。
-            <br /> 友達追加していただき、トークからご相談内容をお送りください。
-            <br />
-            1~2営業日で担当者からご連絡いたします。
-          </p>
+      <div className="display-sm">
+        <p style={{ fontSize: "16px", lineHeight: "31px", textAlign: "left" }} className="descrption-mobile">
+          {contactText}
+          <br />
+          <span style={{ fontWeight: "500" }}>Email: {emailAddress}</span>
+        </p>
       </div>
       
       <Grid container sx={{mt:3, mb: 5, flexDirection:{md:"row",sm:"column-reverse", xs:"column-reverse"}}} spacing={3}>
         <Grid item md={6} xs={12}>
-          <Box  sx={{ textTransform: "uppercase !important", textAlign: {md:"end", xs:"center"} }}>
+          <Box sx={{ textTransform: "uppercase !important", textAlign: {md:"end", xs:"center"} }}>
             <BackButton />
           </Box>
-          
         </Grid>
         <Grid item sx={{ textAlign: {md:"start", xs:"center"}}} md={6} xs={12}>
-          <Link href="https://lin.ee/J6EdD0f"> 
-            <Button variant="outlined" sx={{ textTransform: "uppercase !important", minWidth: {xs:200, md:150} }}>
-              GO LINE
-            </Button>
+          <Link href={`mailto:${emailAddress}`} style={{ textDecoration: 'none' }}>
+            <CustomButton variant="outlined">
+              Send Email
+            </CustomButton>
           </Link>
         </Grid>
       </Grid>

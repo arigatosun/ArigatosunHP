@@ -24,7 +24,6 @@ const Bubbic = () => {
       rootElement.style.overflow = "visible";
     }
 
-    // ComponentWillUnmountの代わりとして
     return () => {
       htmlElement.style.overflow = prevHtmlOverflow;
       bodyElement.style.overflow = prevBodyOverflow;
@@ -32,140 +31,185 @@ const Bubbic = () => {
         rootElement.style.overflow = prevRootOverflow;
       }
     };
-  }, []); // 空配列を依存性リストとして渡すことで一度だけ実行する
+  }, []);
   
-    useLocationChange((location) => {
-        const removeOverflowHidden = (className) => {
-            const elements = document.getElementsByClassName(className);
+  useLocationChange((location) => {
+    const removeOverflowHidden = (className) => {
+      const elements = document.getElementsByClassName(className);
       
-            for (let i = 0; i < elements.length; i++) {
-              elements[i].style.overflow = 'visible';
-            }
-          };
-      
-          removeOverflowHidden('sc-beqWaB hPGFqH');
-          removeOverflowHidden('sc-gueYoa xAJSw');
-      })
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].style.overflow = 'visible';
+      }
+    };
+    
+    removeOverflowHidden('sc-beqWaB hPGFqH');
+    removeOverflowHidden('sc-gueYoa xAJSw');
+  });
+
   return (
     <Container
       sx={{
         maxWidth: "820px !important",
         margin: "auto",
         alignItems: "flex-end",
-        padding: "24px",
         letterSpacing: "0.18em",
         mt: 5,
-        pr: "0 !important",
-        pl: "0 !important",
+        p: { xs: "16px", md: "24px" },
+        pr: { xs: "16px", md: "0 !important" },
+        pl: { xs: "16px", md: "0 !important" }
       }}
     >
-     <div
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "1.5rem"
-  }}
->
-  <Link
-    href="tax3"
-    sx={{
-      fontFamily: "Kanit",
-      fontWeight: 600,
-      textDecoration: "none",
-      color: "#333333",
-      fontSize: { xs: "12px", md: 16 },
-      whiteSpace: {xs:"nowrap"}
-    }}
-  >
-    {"<"} Prev
-  </Link>
-  <Typography
-    variant="p"
-    color="initial"
-    sx={{ fontFamily: "Inter", fontWeight: 600,  fontSize: { xs: "12px", md: 16 }, textAlign: {xs:"center"} }}
-  >
-    オリジナルシャンパンブランド<br/>Bubbic
-  </Typography>
-  <Link
-    href="nasty"
-    sx={{
-      fontFamily: "Kanit",
-      fontWeight: 600,
-      textDecoration: "none",
-      color: "#333333",
-      fontSize: { xs: "12px", md: 16 },
-      whiteSpace: {xs:"nowrap"}
-    }}
-  >
-    Next {">"}
-  </Link>
-</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "1.5rem"
+        }}
+      >
+        <Link
+          href="tax3"
+          sx={{
+            fontFamily: "Kanit",
+            fontWeight: 600,
+            textDecoration: "none",
+            color: "#FFFFFF",
+            fontSize: { xs: "12px", md: 16 },
+            whiteSpace: { xs: "nowrap" },
+            '&:hover': {
+              opacity: 0.7
+            }
+          }}
+        >
+          {"<"} Prev
+        </Link>
+        <Typography
+          variant="p"
+          sx={{ 
+            fontFamily: "Inter", 
+            fontWeight: 600,  
+            fontSize: { xs: "12px", md: 16 }, 
+            textAlign: { xs: "center" },
+            color: '#FFFFFF'
+          }}
+        >
+          オリジナルシャンパンブランド<br/>Bubbic
+        </Typography>
+        <Link
+          href="nasty"
+          sx={{
+            fontFamily: "Kanit",
+            fontWeight: 600,
+            textDecoration: "none",
+            color: "#FFFFFF",
+            fontSize: { xs: "12px", md: 16 },
+            whiteSpace: { xs: "nowrap" },
+            '&:hover': {
+              opacity: 0.7
+            }
+          }}
+        >
+          Next {">"}
+        </Link>
+      </div>
 
-      <Box sx={{ textAlign: "center" }}>
-        <Box component="img" src={bubbicImg1} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg2} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg3} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg4} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbiclogo} />
+      <Box 
+        sx={{ 
+          textAlign: "center",
+          overflowX: { xs: 'hidden', md: 'visible' }
+        }}
+      >
+        <Box 
+          sx={{
+            '& > .main-image': {
+              width: { xs: '100%', md: '820px' },
+              height: { xs: 'auto', md: '506px' },
+              transition: 'width 0.3s, height 0.3s'
+            },
+            '& > .logo-image': {
+              width: 'auto',
+              height: 'auto'
+            }
+          }}
+        >
+          <Box className="main-image" component="img" src={bubbicImg1} />
+          <Box className="main-image" sx={{ mt: 2 }} component="img" src={bubbicImg2} />
+          <Box className="main-image" sx={{ mt: 2 }} component="img" src={bubbicImg3} />
+          <Box className="main-image" sx={{ mt: 2 }} component="img" src={bubbicImg4} />
+          <Box className="logo-image" sx={{ mt: 2 }} component="img" src={bubbiclogo} />
+        </Box>
       </Box>
-      <Divider sx={{ mt: 5, mb: 5, backgroundColor: "black" }} />
+
+      <Divider sx={{ mt: 5, mb: 5, backgroundColor: "#FFFFFF" }} />
       
-      <Box sx={{margin: {xs: "0 20px"}}}>        
-      <Typography
-        variant="p"
-        color="initial"
-        sx={{
-          display: "block",
-          fontFamily: "Inter",
-          fontWeight: 400,
-          fontSize: "14px",
-        }}
-      >
-        オリジナルシャンパンブランド/Bubbic
-      </Typography>
-      <Typography
-        variant="p"
-        color="initial"
-        sx={{
-          display: "block",
-          fontFamily: "Inter",
-          fontWeight: 400,
-          fontSize: "14px",
-        }}
-      >
-        <br />
-        <br />
-        ・Logo design
-        <br />
-        ・Landing page design
-        <br />
-        ・label design
-        <br />
-        ・Instagram feed design
-        <br />
-        ・LINE@ design
-      </Typography>
-      <Typography
-        variant="p"
-        color="initial"
-        sx={{
-          display: "block",
-          fontFamily: "Inter",
-          fontWeight: 400,
-          fontSize: "14px",
-        }}
-      >
-        <br />
-        Link
-      </Typography>
-      <Link href="https://bubbic.com/" sx={{ color: "gray" }}>
-        https://bubbic.com/
-      </Link>
-        <Box sx={{mt: 3, textAlign: "center"}}>
-            <BackButton/>
+      <Box sx={{ 
+        margin: { 
+          xs: "0 4px",
+          md: "0 20px"
+        } 
+      }}>        
+        <Typography
+          variant="p"
+          sx={{
+            display: "block",
+            fontFamily: "Inter",
+            fontWeight: 400,
+            fontSize: "14px",
+            color: '#FFFFFF'
+          }}
+        >
+          オリジナルシャンパンブランド/Bubbic
+        </Typography>
+        <Typography
+          variant="p"
+          sx={{
+            display: "block",
+            fontFamily: "Inter",
+            fontWeight: 400,
+            fontSize: "14px",
+            color: '#FFFFFF'
+          }}
+        >
+          <br />
+          <br />
+          ・Logo design
+          <br />
+          ・Landing page design
+          <br />
+          ・label design
+          <br />
+          ・Instagram feed design
+          <br />
+          ・LINE@ design
+        </Typography>
+        <Typography
+          variant="p"
+          sx={{
+            display: "block",
+            fontFamily: "Inter",
+            fontWeight: 400,
+            fontSize: "14px",
+            color: '#FFFFFF'
+          }}
+        >
+          <br />
+          Link
+        </Typography>
+        <Link 
+          href="https://bubbic.com/" 
+          sx={{ 
+            color: '#FFFFFF',
+            '&:hover': {
+              opacity: 0.7
+            }
+          }}
+        >
+          https://bubbic.com/
+        </Link>
+        <Box sx={{ mt: 3, textAlign: "center" }}>
+          <BackButton />
         </Box>
-        </Box>
+      </Box>
     </Container>
   );
 };

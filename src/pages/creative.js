@@ -13,7 +13,7 @@ function Creative() {
   
 
   // ポートフォリオページ用の名前
-  const portfolio = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi"]
+  const portfolio = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru"]
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -86,7 +86,7 @@ function Creative() {
             right: "10%",
             top: "30%",
             transform: "translateY(-50%)",
-            color: "#443538",
+            color: "#FFFFFF",
             height: "350px",
           }}
         />

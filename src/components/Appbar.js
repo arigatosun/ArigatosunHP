@@ -12,11 +12,10 @@ import MenuItem from '@mui/material/MenuItem';
 import toplogo from './images/arigatosun_logo.png';
 import mark from './images/color_mark.png';
 import {Link} from 'react-router-dom';
-import marklogo from './images/creations_marklogo_mobile.png';
-import toplogo_mobile from './images/creations_toplogo_mobile.svg';
+import marklogo from './images/arigatosun_marklogo_mobile.png';
+import toplogo_mobile from './images/arigatosun_toplogo_mobile.png';
 
 const pages = ['home', 'creative', 'contact', 'company'];
-
 const pagesMobile = ['home', 'contact', 'company'];
 
 function Appbar() {
@@ -31,21 +30,29 @@ function Appbar() {
     setAnchorElNav(null);
   };
 
+  const menuItemStyle = {
+    '& a': {
+      fontFamily: "Kanit",
+      textDecoration: 'none !important',
+      color: "#79BED1 !important",
+    }
+  };
+
   return (
     <>
     <AppBar id="appbar-desktop" class="relative" style={{ backgroundColor: "transparent", boxShadow: '0px 0px 0px 0px',  zIndex: 50}}>
       <Container maxWidth="xl">
-        <Toolbar  disableGutters>
+        <Toolbar disableGutters>
           <img src={mark} className='just-absolute header-mark' alt='colorlogo'/>
           <Link to={"/home"}>
-  <div className="header-logo-container">
-    <img 
-      src={toplogo} 
-      alt="logo" 
-      className="header-logo"
-    />
-  </div>
-</Link>       
+            <div className="header-logo-container">
+              <img 
+                src={toplogo} 
+                alt="logo" 
+                className="header-logo"
+              />
+            </div>
+          </Link>       
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' , justifyContent: "flex-end"} }}>
             <IconButton
               size="large"
@@ -58,20 +65,20 @@ function Appbar() {
               <MenuIcon />
             </IconButton>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent: "flex-end"}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "flex-end" }}>
             {pages.map((page) => (
               <Link
                 key={page}
                 to={"/" +page}
                 sx={{ textDecoration: 'none !important' }}
-                >
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', color: '#FFFFFF',  fontFamily: "Kanit" , fontWeight: 300, textTransform: "lowercase", fontSize: "16px",  textDecoration: 'none !important'}}
               >
-                {page}
-              </Button>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block', fontFamily: "Kanit", fontWeight: 300, textTransform: "lowercase", fontSize: "16px", textDecoration: 'none !important'}}
+                >
+                  {page}
+                </Button>
               </Link>
             ))}
           </Box>
@@ -80,15 +87,47 @@ function Appbar() {
     </AppBar>
     <AppBar id="appbar-mobile" class="relative" style={{ backgroundColor: "transparent", boxShadow: '0px 0px 0px 0px',  zIndex: 50}}>
       <Container maxWidth="xl">
-        <Toolbar  disableGutters>
-          <Link to={"/home"}>
-            <img src={marklogo} alt="logo" width={"100%"} />
+        <Toolbar disableGutters>
+          <Link to={"/home"}
+            style={{
+              flex: '0 0 auto',
+              marginRight: '10px'
+            }}>
+            <img 
+              src={marklogo} 
+              alt="Arigatosun mark logo" 
+              style={{
+                width: '74px',
+                height: '52px',
+                objectFit: 'contain'
+              }}
+            />
           </Link>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' , justifyContent: "flex-end"} }}>
-            <img src={toplogo_mobile} alt="logo" height={"18px !important"}/>
+          <Box sx={{ 
+            flexGrow: 1, 
+            display: { xs: 'flex', md: 'none' },
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '0 auto',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)'
+          }}>
+            <img 
+              src={toplogo_mobile} 
+              alt="Arigatosun text logo"
+              style={{
+                width: '340px',
+                height: '34px',
+                objectFit: 'contain'
+              }}
+            />
           </Box>          
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' , justifyContent: "flex-end"} }}>
-          
+          <Box sx={{ 
+            flexGrow: 0,
+            display: { xs: 'flex', md: 'none' },
+            marginLeft: 'auto'
+          }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -114,12 +153,21 @@ function Appbar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none'},
+                display: { xs: 'block', md: 'none' },
               }}
             >
               {pagesMobile.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={"/" +page} textAlign="center" style={{fontFamily: "Kanit", textDecoration: 'none !important', color: "#FFFFFF" }}>{page}</Link>
+                <MenuItem 
+                  key={page} 
+                  onClick={handleCloseNavMenu}
+                  sx={menuItemStyle}
+                >
+                  <Link 
+                    to={"/" + page} 
+                    textAlign="center"
+                  >
+                    {page}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -130,4 +178,5 @@ function Appbar() {
     </>
   );
 }
+
 export default Appbar;

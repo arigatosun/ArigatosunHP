@@ -1,39 +1,66 @@
-import {React} from 'react'
+import { React, useState } from 'react'
 import imageData from '../data/home_images.json';
 import shadowImg from "../components/images/shadow.png";
-import { Link } from "react-router-dom";
+import { useHistory, useLocation } from 'react-router-dom';
 import { Box } from '@mui/material';
+import { PageTransition } from '@steveeeie/react-page-transition';
 
-function Homemobile  () {
-  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi"];
-    const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
+function Homemobile() {
+  const history = useHistory();
+  const location = useLocation();
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru"];
+  const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
+
+  const handleClick = (e, path) => {
+    e.preventDefault();
+    setIsAnimating(true);
+    
+    setTimeout(() => {
+      history.push(path);
+    }, 400);
+  };
+
   return (
-        <Box sx={{marginBottom: "3rem"}} className="slider-container">
-            <ul
-              className="slider-images"
-              style={{
-                listStyleType: "none",
-              }}
+    <PageTransition
+      preset="scaleUpScaleUp"
+      transitionKey={location.pathname}
+    >
+      <Box 
+        sx={{marginBottom: "3rem"}} 
+        className={`slider-container ${isAnimating ? 'fade-out' : ''}`}
+      >
+        <ul
+          className="slider-images"
+          style={{
+            listStyleType: "none",
+          }}
+        >
+          {images.map((src, index) => (
+            <li
+              key={index}
+              className={`slider-image ${isAnimating ? 'image-fade-out' : ''}`}
+              style={{ margin: "0px 16px" }}
             >
-              {images.map((src, index) => (
-                <li
-                  key={index}
-                  className="slider-image"
-                  style={{ margin: "0px 16px" }}
-                >
-                  <Link to={"/portfolio/" + portfolios[index]}> 
-                  <img
-                    className="dropshadow"
-                    src={src}
-                    alt={`Slide ${index + 1}`}
-                    width={"100%"}
-                  />
-                  <img alt={"shadow"} className="shadowImg" src={shadowImg} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Box>
+              <a 
+                href={"/portfolio/" + portfolios[index]}
+                onClick={(e) => handleClick(e, "/portfolio/" + portfolios[index])}
+                className="portfolio-link"
+              > 
+                <img
+                  className="dropshadow"
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  width={"100%"}
+                />
+                <img alt={"shadow"} className="shadowImg" src={shadowImg} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Box>
+    </PageTransition>
   )
 }
 
