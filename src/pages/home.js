@@ -17,7 +17,7 @@ function Home() {
   const [left, setLeft] = useState(30);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru"];
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru","keio","movanage"];
 
   
 

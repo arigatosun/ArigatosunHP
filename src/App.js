@@ -20,6 +20,8 @@ import Wasshoi from "./pages/portfolio/wasshoi";
 import Thoot from "./pages/portfolio/thoot.js";
 import Nest from "./pages/portfolio/nest.js";
 import Tunageru from "./pages/portfolio/tunageru.js";
+import Keio from "./pages/portfolio/keio.js";
+import Movanage from "./pages/portfolio/movanage.js";
 
 function App() {
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -93,6 +95,12 @@ const SwitchComponent = ({ location, isMobile }) => (
     </Route>
     <Route path="/portfolio/tunageru">
       <Tunageru />
+    </Route>
+    <Route path="/portfolio/keio">
+      <Keio />
+    </Route>
+    <Route path="/portfolio/movanage">
+      <Movanage />
     </Route>
     <Route>
       <NotFound />

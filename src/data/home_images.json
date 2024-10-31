@@ -39,7 +39,14 @@
         {
             "name": "tunageru",
             "image": "tunageru_main.png"
+        },
+        {
+            "name": "keio",
+            "image": "keio_cup_main.png"
+        },
+        {
+            "name": "movanage",
+            "image": "movanage_main.png"
         }
-
     ]
 }
