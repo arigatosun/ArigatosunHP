@@ -1,11 +1,11 @@
 import { Divider, Box, Typography, Container, Link } from '@mui/material'
 import React from 'react'
-import tunageruLp from "../../components/images/tunageru_logo.png"
-import tunageruone from "../../components/images/tunageru_1.png"
-import tunagerusecond from "../../components/images/tunageru_2.png"
+import keio1 from "../../components/images/keio1.png"
+import keio2 from "../../components/images/keio2.png"
+import keio3 from "../../components/images/keio3.png"
 import BackButton from '../../components/BackButton'
 
-const Tunageru = () => {
+const Keio = () => {
   return (
     <Container 
       sx={{ 
@@ -28,7 +28,7 @@ const Tunageru = () => {
         }}
       >
         <Link
-          href="nest"
+          href="tunageru"
           sx={{
             fontFamily: "Kanit",
             fontWeight: 600,
@@ -53,10 +53,10 @@ const Tunageru = () => {
             color: '#FFFFFF'
           }}
         >
-           AIによる自動インタビューシステム「TUNAGERU CHAT」
+          Keio LP Design & Coding
         </Typography>
         <Link
-          href="keio"
+          href="movanage"
           sx={{
             fontFamily: "Kanit",
             fontWeight: 600,
@@ -74,44 +74,44 @@ const Tunageru = () => {
       </div>
 
       <Box 
-  sx={{ 
-    textAlign: "center",
-    overflowX: { xs: 'hidden', md: 'visible' }
-  }}
->
-  <Box 
-    sx={{
-      '& img': {  // すべての画像に適用される基本スタイル
-        width: { xs: '100%', md: '820px' },
-        height: { xs: 'auto', md: '506px' },
-        transition: 'width 0.3s, height 0.3s',
-        display: 'block',
-        margin: '0 auto',
-        objectFit: { xs: 'contain', md: 'cover' },
-        objectPosition: 'top center'
-      },
-      '& img + img': {  // 2番目以降の画像に適用される余白
-        marginTop: '16px'
-      }
-    }}
-  >
-    <Box 
-      component="img" 
-      src={tunageruLp} 
-      alt="tunageru logo" 
-    />
-    <Box 
-      component="img" 
-      src={tunageruone} 
-      alt="tunageru one"
-    />
-    <Box 
-      component="img" 
-      src={tunagerusecond} 
-      alt="tunageru second"
-    />
-  </Box>
-</Box>
+        sx={{ 
+          textAlign: "center",
+          overflowX: { xs: 'hidden', md: 'visible' }
+        }}
+      >
+        <Box 
+          sx={{
+            '& img': {
+              width: { xs: '100%', md: '820px' },
+              height: { xs: 'auto', md: '506px' },
+              transition: 'width 0.3s, height 0.3s',
+              display: 'block',
+              margin: '0 auto',
+              objectFit: { xs: 'contain', md: 'cover' },
+              objectPosition: 'top center'
+            },
+            '& img + img': {
+              marginTop: '16px'
+            }
+          }}
+        >
+          <Box 
+            component="img" 
+            src={keio1} 
+            alt="keio first" 
+          />
+          <Box 
+            component="img" 
+            src={keio2} 
+            alt="keio second"
+          />
+          <Box 
+            component="img" 
+            src={keio3} 
+            alt="keio third"
+          />
+        </Box>
+      </Box>
 
       <Divider sx={{ mt: 5, mb: 5, backgroundColor: "#FFFFFF" }}/>
       
@@ -131,7 +131,7 @@ const Tunageru = () => {
             color: '#FFFFFF'
           }}
         >
-          AIによる自動インタビューシステム「TUNAGERU CHAT」
+          Keio LP Design & Coding
         </Typography>
         <Typography 
           variant="p" 
@@ -144,34 +144,12 @@ const Tunageru = () => {
           }}
         >
           <br/><br/>
-          ・Webサービス開発（フロントエンド・バックエンド）<br/>
-          ・AIエンジンによる自動質問生成システム<br/>
-          ・音声認識・AI機能開発<br/>
-          ・ユーザー管理システム開発
+          ・Responsive Design Development<br/>
+          ・Modern UI Implementation<br/>
+          ・Animation Development<br/>
+          ・Cross-browser Compatibility
         </Typography>
-        <Typography 
-          variant="p" 
-          sx={{
-            display: "block", 
-            fontFamily: "Inter", 
-            fontWeight: 400, 
-            fontSize: "14px",
-            color: '#FFFFFF'
-          }}
-        >
-          <br/>Link
-        </Typography>
-        <Link 
-          href="https://www.tu-na-ge-ru.com/chat" 
-          sx={{
-            color: '#FFFFFF',
-            '&:hover': {
-              opacity: 0.7
-            }
-          }}
-        >
-          https://www.tu-na-ge-ru.com/chat
-        </Link>
+        
         <Box sx={{ mt: 3, textAlign: "center" }}>
           <BackButton/>
         </Box>
@@ -180,4 +158,4 @@ const Tunageru = () => {
   )
 }
 
-export default Tunageru
+export default Keio

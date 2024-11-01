@@ -10,7 +10,7 @@ function Homemobile() {
   const location = useLocation();
   const [isAnimating, setIsAnimating] = useState(false);
   
-  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru"];
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru","keio","movanage"];
   const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
 
   const handleClick = (e, path) => {
