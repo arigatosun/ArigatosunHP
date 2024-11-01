@@ -13,7 +13,7 @@ function Creative() {
   
 
   // ポートフォリオページ用の名前
-  const portfolio = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru"]
+  const portfolio = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi","thoot","nest","tunageru","keio","movanage"]
 
   useEffect(() => {
     const handleWheel = (e) => {

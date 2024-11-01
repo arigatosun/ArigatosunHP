@@ -1,6 +1,8 @@
 import { Divider, Box, Typography, Container, Link } from '@mui/material'
 import React from 'react'
 import movanage1 from "../../components/images/movanage1.png"
+import movanage2 from "../../components/images/movanage2.png"
+import movanage3 from "../../components/images/movanage3.png"
 import BackButton from '../../components/BackButton'
 
 const Mobanage = () => {
@@ -49,8 +51,8 @@ const Mobanage = () => {
             fontSize: { xs: "12px", md: 16 }, 
             textAlign: "right",
             color: '#FFFFFF',
-            marginLeft: "auto", // 右寄せにするために追加
-            paddingRight: "20px" // 右端からの余白
+            marginLeft: "auto",
+            paddingRight: "20px"
           }}
         >
           Mobanage LP Design & Coding
@@ -73,6 +75,9 @@ const Mobanage = () => {
               margin: '0 auto',
               objectFit: { xs: 'contain', md: 'cover' },
               objectPosition: 'top center'
+            },
+            '& img + img': {
+              marginTop: '16px'
             }
           }}
         >
@@ -80,6 +85,16 @@ const Mobanage = () => {
             component="img" 
             src={movanage1} 
             alt="mobanage service overview" 
+          />
+          <Box 
+            component="img" 
+            src={movanage2} 
+            alt="mobanage service features"
+          />
+          <Box 
+            component="img" 
+            src={movanage3} 
+            alt="mobanage service details"
           />
         </Box>
       </Box>

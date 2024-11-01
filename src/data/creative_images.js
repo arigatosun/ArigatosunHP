@@ -9,5 +9,7 @@ import luchia from "../components/images/luchia_creative.png";
 import ThootImg from "../components/images/thoot_creative.png";
 import NestImg from "../components/images/nest_creative.png";
 import TunageruImg from "../components/images/tunageru_creative.png";
+import KeioImg from "../components/images/keio_creative.png";
+import MovanageImg from "../components/images/movanage_creative.png";
 
-export const images = [tax3Img, bubbicImg, nastyImg, kusomeganeImg, ifcImg, luchia, wasshoiImg,ThootImg,NestImg,TunageruImg, rectangleImg, rectangleImg, rectangleImg ,rectangleImg ,rectangleImg,rectangleImg, rectangleImg ,rectangleImg];
+export const images = [tax3Img, bubbicImg, nastyImg, kusomeganeImg, ifcImg, luchia, wasshoiImg,ThootImg,NestImg,TunageruImg,KeioImg,MovanageImg,rectangleImg, rectangleImg, rectangleImg ,rectangleImg ,rectangleImg,rectangleImg, rectangleImg ,rectangleImg];
